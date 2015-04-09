@@ -19,11 +19,11 @@ public class Main {
 				.createEntityManager();
 		entityManager.getTransaction().begin();
 
-		// inserirPessoa(entityManager);
+		 inserirPessoa(entityManager);
 		// buscarPorId(entityManager);
 		// excluir(entityManager);
 		// atualizar(entityManager);
-		listar(entityManager);
+		//listar(entityManager);
 
 		entityManager.getTransaction().commit();
 		entityManager.close();
@@ -71,13 +71,17 @@ public class Main {
 		System.out.println("ID:" + pessoa.getId());
 	}
 
-	private static void inserir(EntityManager entityManager) {
+	private static void inserirPessoa(EntityManager entityManager) {
 		Pessoa pessoa;
 		pessoa = new Pessoa();
 		// pessoa.setId(1L);
 		pessoa.setIdade(18);
-		pessoa.setNome("Yuri");
+		pessoa.setNome("");
 		pessoa.setSexo('F');
 		entityManager.persist(pessoa);
 	}
+	
+	
+	
+	
 }
