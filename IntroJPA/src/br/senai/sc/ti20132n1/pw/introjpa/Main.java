@@ -19,7 +19,7 @@ public class Main {
 				.createEntityManager();
 		entityManager.getTransaction().begin();
 
-		 inserirPessoa(entityManager);
+		 inserirNovo(entityManager);
 		// buscarPorId(entityManager);
 		// excluir(entityManager);
 		// atualizar(entityManager);
@@ -71,7 +71,7 @@ public class Main {
 		System.out.println("ID:" + pessoa.getId());
 	}
 
-	private static void inserirPessoa(EntityManager entityManager) {
+	private static void inserirNovo(EntityManager entityManager) {
 		Pessoa pessoa;
 		pessoa = new Pessoa();
 		// pessoa.setId(1L);
