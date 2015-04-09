@@ -1,10 +1,10 @@
 package br.senai.sc.ti20132n1.pw.introjpa;
 import java.util.List;
 
+import javax.management.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 
 import br.senai.sc.ti20132n1.pw.introjpa.entity.Pessoa;
 
@@ -52,7 +52,7 @@ public class Main {
 		pessoa = new Pessoa();
 		pessoa.setId(3L);
 		pessoa.setIdade(25);
-		pessoa.setNome("Ana Maria");
+		pessoa.setNome("Nestor");
 		pessoa.setSexo('F');
 
 		entityManager.merge(pessoa);
@@ -76,7 +76,7 @@ public class Main {
 		pessoa = new Pessoa();
 		// pessoa.setId(1L);
 		pessoa.setIdade(18);
-		pessoa.setNome("Ana");
+		pessoa.setNome("Yuri");
 		pessoa.setSexo('F');
 		entityManager.persist(pessoa);
 	}
