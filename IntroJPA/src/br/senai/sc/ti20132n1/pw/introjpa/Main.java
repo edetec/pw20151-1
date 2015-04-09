@@ -1,7 +1,7 @@
 package br.senai.sc.ti20132n1.pw.introjpa;
 import java.util.List;
 
-import javax.management.Query;
+import javax.persistence.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
