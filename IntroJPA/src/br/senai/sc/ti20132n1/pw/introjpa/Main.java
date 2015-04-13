@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import br.senai.sc.ti20132n1.pw.introjpa.entity.Pessoa;
+import br.senai.sc.ti20132n1.pw.introjpa.entity.Turma;
 
 public class Main {
 	public static EntityManagerFactory entityManagerFactory;
@@ -19,11 +20,12 @@ public class Main {
 				.createEntityManager();
 		entityManager.getTransaction().begin();
 
-		 inserir(entityManager);
+//		 inserir(entityManager);
+//		inserirSomentePessoa(entityManager);
 		// buscarPorId(entityManager);
 		// excluir(entityManager);
-		// atualizar(entityManager);
-		//listar(entityManager);
+//		 atualizar(entityManager);
+		listar(entityManager);
 
 		entityManager.getTransaction().commit();
 		entityManager.close();
@@ -41,6 +43,8 @@ public class Main {
 					.println("-----------------------------------------------------");
 			System.out.println("Nome: " + pessoa.getNome());
 			System.out.println("Idade: " + pessoa.getIdade());
+			System.out.print("Turma: " + pessoa.getTurma().getCurso().concat("/"));
+			System.out.println(pessoa.getTurma().getSemestre());
 		}
 		System.out
 				.println("-----------------------------------------------------");
@@ -50,10 +54,10 @@ public class Main {
 		// Pessoa pessoa = entityManager.find(Pessoa.class, 3L);
 		Pessoa pessoa;
 		pessoa = new Pessoa();
-		pessoa.setId(3L);
+		pessoa.setId(6L);
 		pessoa.setIdade(25);
 		pessoa.setNome("Nestor");
-		pessoa.setSexo('F');
+		pessoa.setSexo('M');
 
 		entityManager.merge(pessoa);
 
@@ -72,16 +76,33 @@ public class Main {
 	}
 
 	private static void inserir(EntityManager entityManager) {
+		Turma turma = new Turma();
+		turma.setAno(2015);
+		turma.setSemestre(1);
+		turma.setCurso("TI");
+		
 		Pessoa pessoa;
 		pessoa = new Pessoa();
 		// pessoa.setId(1L);
 		pessoa.setIdade(18);
-		pessoa.setNome("");
+		pessoa.setNome("Maria");
 		pessoa.setSexo('F');
+		pessoa.setTurma(turma );
 		entityManager.persist(pessoa);
 	}
-	
-	
+
+	private static void inserirSomentePessoa(EntityManager entityManager) {
+		Turma turma = entityManager.getReference(Turma.class, 1L);
+		Pessoa pessoa;
+		pessoa = new Pessoa();
+		// pessoa.setId(1L);
+		pessoa.setIdade(18);
+		pessoa.setNome("Maria");
+		pessoa.setSexo('F');
+		pessoa.setTurma(turma);
+		entityManager.persist(pessoa);
+		
+	}
 	
 	
 }

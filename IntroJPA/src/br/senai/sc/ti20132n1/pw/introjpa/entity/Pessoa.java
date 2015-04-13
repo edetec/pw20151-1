@@ -1,8 +1,10 @@
 package br.senai.sc.ti20132n1.pw.introjpa.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Pessoa {
@@ -13,6 +15,9 @@ public class Pessoa {
 	private String nome;
 	private Integer idade;
 	private Character sexo;
+	
+	@ManyToOne(cascade=CascadeType.PERSIST)
+	private Turma turma;
 	
 	public Long getId() {
 		return id;
@@ -37,5 +42,11 @@ public class Pessoa {
 	}
 	public void setSexo(Character sexo) {
 		this.sexo = sexo;
+	}
+	public Turma getTurma() {
+		return turma;
+	}
+	public void setTurma(Turma turma) {
+		this.turma = turma;
 	}
 }
