@@ -1,10 +1,13 @@
 package br.senai.sc.ti20132n1.pw.introjpa;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
+import org.hibernate.type.TrueFalseType;
 
 import br.senai.sc.ti20132n1.pw.introjpa.entity.Pessoa;
 import br.senai.sc.ti20132n1.pw.introjpa.entity.Turma;
@@ -25,13 +28,38 @@ public class Main {
 		// buscarPorId(entityManager);
 		// excluir(entityManager);
 //		 atualizar(entityManager);
-		listar(entityManager);
+//		listar(entityManager);
+//		listarTurmas(entityManager);
+		excluirTurma(entityManager);
 
 		entityManager.getTransaction().commit();
 		entityManager.close();
 
 		entityManagerFactory.close();
 
+	}
+
+	private static void excluirTurma(EntityManager entityManager) {
+		Turma turma = entityManager.getReference(Turma.class, 1L);
+		entityManager.remove(turma);
+		
+	}
+
+	private static void listarTurmas(EntityManager entityManager) {
+		Query query = entityManager.createQuery("From Turma", Turma.class);
+		List<Turma> turmas = query.getResultList();
+		
+		for (Turma turma : turmas) {
+			System.out.print("----- " + turma.getCurso());
+			System.out.print(turma.getAno() + "/" + turma.getSemestre());
+			System.out.println(" -----");
+			for (Pessoa pessoa : turma.getAlunos()) {
+				System.out.print("Nome: " + pessoa.getNome());
+				System.out.println(", " + pessoa.getIdade() + " anos.");
+			}
+			System.out.println("-------------------------");
+		}
+		
 	}
 
 	private static void listar(EntityManager entityManager) {

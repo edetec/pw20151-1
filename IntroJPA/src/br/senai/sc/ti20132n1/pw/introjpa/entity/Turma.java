@@ -1,8 +1,13 @@
 package br.senai.sc.ti20132n1.pw.introjpa.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Turma {
@@ -12,6 +17,9 @@ public class Turma {
 	private String curso;
 	private Integer ano;
 	private Integer semestre;
+	
+	@OneToMany(mappedBy="turma",fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<Pessoa> alunos;
 	
 	public Long getId() {
 		return id;
@@ -36,5 +44,11 @@ public class Turma {
 	}
 	public void setSemestre(Integer semestre) {
 		this.semestre = semestre;
+	}
+	public List<Pessoa> getAlunos() {
+		return alunos;
+	}
+	public void setAlunos(List<Pessoa> alunos) {
+		this.alunos = alunos;
 	}	
 }
