@@ -29,8 +29,8 @@ public class Main {
 		// excluir(entityManager);
 //		 atualizar(entityManager);
 //		listar(entityManager);
-//		listarTurmas(entityManager);
-		excluirTurma(entityManager);
+		listarTurmas(entityManager);
+//		excluirTurma(entityManager);
 
 		entityManager.getTransaction().commit();
 		entityManager.close();
