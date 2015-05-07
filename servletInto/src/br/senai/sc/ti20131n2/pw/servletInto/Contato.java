@@ -21,6 +21,7 @@ public class Contato extends HttpServlet {
 		String email = request.getParameter("email");
 		String mensagem = request.getParameter("mensagem");
 		String spam = request.getParameter("spam");
+		String uf = request.getParameter("uf");
 		
 		// ações 
 		
@@ -32,10 +33,12 @@ public class Contato extends HttpServlet {
 		writer.println("<b>E-mail: </b>" + email);
 		writer.println("<br />");
 		writer.println("<b>Mensagem: </b>" + mensagem);
-		if(!spam.isEmpty()){
+		if(spam != null && !spam.isEmpty()){
 			writer.println("<br />");
 			writer.println("<b>Span: </b>" + spam);
 		}
+		writer.println("<br />");
+		writer.println("<b>UF: </b>" + uf);
 		writer.println("</body>");
 		writer.println("</html>");
 	}
