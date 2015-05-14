@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title><ui:insert name="title">Pizzaria Por do Sol</ui:insert></title>
+
+	<h:outputScript library="webjars" name="jquery/2.1.4/jquery.js" />
+	<h:outputScript library="webjars"
+		name="bootstrap/3.3.4/js/bootstrap.min.js" />
+	<h:outputStylesheet library="webjars"
+		name="bootstrap/3.3.4/css/bootstrap.min.css" />
+
+	<h:outputStylesheet library="css" name="theme-bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="padrao.css" />
+</h:head>
+
+<body>
+	<ui:include src="/WEB-INF/template/menu.xhtml" />
+	<div class="container">
+
+		<div class="page-header">
+			<h1>
+				<ui:insert name="page-header">
+					Pizzaria Por do Sol
+				</ui:insert>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-md-9">
+				<ui:insert name="col1"></ui:insert>
+			</div>
+			<div class="col-md-3">
+				<ui:insert name="col2"></ui:insert>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+
+</html>
