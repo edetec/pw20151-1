@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/template/padrao.xhtml">
+	<ui:define name="col1">
+		<div class="col-md-3">
+
+			<ui:include src="/WEB-INF/template/menuNovidades.xhtml" />
+
+		</div>
+		<div class="col-md-9">
+			<strong>Pizza na Pedra</strong>
+			<p>
+				Tradi&ccedil;&atilde;o na arte de preparar a massa, com ingredientes
+				de primeira linha, exclusiva em servir uma pizza de qualidade,
+				crocante, saborosa e que fica quente por muito mais tempo em sua
+				mesa. A pedra sai do forno a 350 graus, passa em seguida por um
+				processo de esfriamento, diminuindo a temperatura para 180 graus.<br />
+				Ap&oacute;s isso, a pizza &eacute; colocada sobre a pedra e retorna
+				ao forno onde &eacute; assada at&eacute; chegar &agrave; temperatura
+				ideal. A pizza vai &agrave; mesa nesta mesma pedra, deixando as
+				pr&oacute;ximas fatias mais crocantes e com sabores diferenciados ao
+				paladar.
+			</p>
+			<p>
+				<strong>Hist&oacute;ria da Pizza</strong>
+			</p>
+			<p>H&aacute; ind&iacute;cios de que a pizza existe h&aacute; mais
+				de 3 mil anos. Eg&iacute;pcios j&aacute; misturavam farinha com
+				cereais e &aacute;gua e assavam sobre uma pedra quente;
+				babil&ocirc;nios, fen&iacute;cios, persas e hebreus tamb&eacute;m
+				utilizavam essa mistura, &agrave; qual chamavam de &ldquo;P&atilde;o
+				de Abra&atilde;o&rdquo;. Acredita-se que assim se deu origem
+				&agrave; pizza. Os Gregos a chamavam de &ldquo;Maza&rdquo;. Em Roma
+				e na civiliza&ccedil;&atilde;o latina chamavam-na de
+				&ldquo;Placenta&rdquo; ou &ldquo;Olfa&rdquo;.&nbsp;Os
+				Eg&iacute;pcios tinham costume de celebrar o anivers&aacute;rio dos
+				Fara&oacute;s com um disco de massa guarnecido com diferentes
+				ervas.&nbsp;&ldquo;Picea&rdquo;, uma iguaria Napolitana feita de um
+				disco de massa com ervas e especiarias, alimento muito popular no
+				sul da It&aacute;lia e algum tempo depois aparecia a palavra
+				&ldquo;Pizza&rdquo;. A partir da&iacute;, ela foi difundida para
+				todo o mundo.</p>
+		</div>
+	</ui:define>
+
+	<ui:define name="col2">
+		<!-- Coluna de famosos -->
+		<h2>Famosos</h2>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<span>Ana Maria de Almeida</span>
+			</div>
+			<div class="panel-body">
+				<h:graphicImage library="img"
+					name="181beth_goulart_pizza_na_pedra.jpg"
+					styleClass="img-responsive" />
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<span>Gabriel Pensador</span>
+			</div>
+			<div class="panel-body">
+				<h:graphicImage library="img"
+					name="359gabriel_o_pensador_pizza_na_pedra.jpg"
+					styleClass="img-responsive" />
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>
