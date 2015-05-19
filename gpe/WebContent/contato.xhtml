@@ -8,6 +8,7 @@
 
 <ui:composition template="/WEB-INF/templates/padrao.xhtml">
 	<ui:define name="header">
+		<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span>
 	</ui:define>
 	
 	<ui:define name="content">
@@ -15,12 +16,13 @@
 			<fieldset>
 				<legend>Informações de contato</legend>
 				<h:outputLabel value="Nome " />
-				<h:inputText styleClass="form-control" value="" />
+				<h:inputText styleClass="form-control" value="#{contatoMB.nome}" />
 				<br />
 				<h:outputLabel value="E-mail " />
-				<h:inputText  styleClass="form-control"  value="" />
+				<h:inputText  styleClass="form-control"  value="#{contatoMB.email}" />
 				 <div>
-				 	<button class="btn btn-success" type="submit">Enviar</button>
+			 		<h:commandButton action="#{contatoMB.enviar()}" 
+			 			styleClass="btn btn-success" value="Enviar" />
 				 	<button  class="btn btn-default" type="reset">Restaurar</button>
 				 </div>
 			</fieldset>
