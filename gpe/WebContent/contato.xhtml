@@ -16,10 +16,10 @@
 			<fieldset>
 				<legend>Informações de contato</legend>
 				<h:outputLabel value="Nome " />
-				<h:inputText styleClass="form-control" value="#{contatoMB.nome}" />
+				<h:inputText styleClass="form-control" value="#{contatoMB.contato.nome}" />
 				<br />
 				<h:outputLabel value="E-mail " />
-				<h:inputText  styleClass="form-control"  value="#{contatoMB.email}" />
+				<h:inputText  styleClass="form-control"  value="#{contatoMB.contato.email}" />
 				 <div>
 			 		<h:commandButton action="#{contatoMB.enviar()}" 
 			 			styleClass="btn btn-success" value="Enviar" />

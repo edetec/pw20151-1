@@ -2,32 +2,30 @@ package br.senai.sc.ti20132n1.pw.gpe.mb;
 
 import javax.faces.bean.ManagedBean;
 
+import br.senai.sc.ti20132n1.pw.gpe.dao.ContatoDao;
+import br.senai.sc.ti20132n1.pw.gpe.entity.Contato;
+
 @ManagedBean
 public class ContatoMB {
-	private String nome;
-	private String email;
+	private Contato contato;
 	
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
+	public ContatoMB() {
+		contato = new Contato();
 	}
 	
 	public String enviar(){
-		System.out.println("Nome: " + nome);
-		System.out.println("E-Mail: " + email);
-		
-		nome = "";
-		email = "";
-		
+		ContatoDao dao = new ContatoDao();
+		dao.salvar(contato);
+		contato = new Contato();
 		return "";
+	}
+
+	public Contato getContato() {
+		return contato;
+	}
+
+	public void setContato(Contato contato) {
+		this.contato = contato;
 	}
 	
 }
