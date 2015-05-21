@@ -1,4 +1,4 @@
-package br.senai.sc.ti20132n1.pw.gpe.uitl;
+package br.senai.sc.ti20132n1.pw.gpe.util;
 
 import java.io.IOException;
 import java.util.logging.Logger;

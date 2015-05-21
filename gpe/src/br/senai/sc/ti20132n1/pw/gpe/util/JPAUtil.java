@@ -1,4 +1,4 @@
-package br.senai.sc.ti20132n1.pw.gpe.uitl;
+package br.senai.sc.ti20132n1.pw.gpe.util;
 
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
