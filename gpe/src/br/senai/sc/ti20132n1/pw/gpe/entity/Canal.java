@@ -3,6 +3,7 @@ package br.senai.sc.ti20132n1.pw.gpe.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Canal {
@@ -11,7 +12,15 @@ public class Canal {
 	private Long id;
 	private String nome;
 	private String logo;
+	@ManyToOne
+	private TipoCanal tipoCanal;
 	
+	public TipoCanal getTipoCanal() {
+		return tipoCanal;
+	}
+	public void setTipoCanal(TipoCanal tipoCanal) {
+		this.tipoCanal = tipoCanal;
+	}
 	public Long getId() {
 		return id;
 	}
