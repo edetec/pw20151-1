@@ -27,8 +27,15 @@
 				</h:column>
 
 				<h:column>
-					<h:commandLink action="#{canalMB.editar(item.id)}" value="E" /> 
-					<h:commandButton onclick="return confirm('Tem certeza?');" action="#{canalMB.excluir(item.id)}" value="X" />
+					<h:commandLink styleClass="btn btn-info"
+						action="#{canalMB.editar(item.id)}">
+						<span class="glyphicon glyphicon-edit"></span>
+					</h:commandLink>
+					<h:outputText value="&nbsp;&nbsp;&nbsp;" />
+					<h:commandLink styleClass="btn btn-warning" onclick="return confirm('Tem certeza?');"
+						action="#{canalMB.excluir(item.id)}">
+						<span class="glyphicon glyphicon-trash"></span>
+					</h:commandLink>
 				</h:column>
 			</h:dataTable>
 		</h:form>
