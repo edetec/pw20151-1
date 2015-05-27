@@ -6,12 +6,15 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
 import br.senai.sc.ti20132n1.pw.gpe.dao.CanalDao;
+import br.senai.sc.ti20132n1.pw.gpe.dao.TipoCanalDao;
 import br.senai.sc.ti20132n1.pw.gpe.entity.Canal;
+import br.senai.sc.ti20132n1.pw.gpe.entity.TipoCanal;
 
 @ManagedBean
 public class CanalMB {
 	private Canal canal;
 	private List<Canal> canais;
+	private List<TipoCanal> tipos;
 	private CanalDao canalDao;
 	
 	@PostConstruct
@@ -37,6 +40,18 @@ public class CanalMB {
 
 	public void setCanais(List<Canal> canais) {
 		this.canais = canais;
+	}
+
+	public List<TipoCanal> getTipos() {
+		if(tipos == null){
+			TipoCanalDao tipoCanalDao = new TipoCanalDao();
+			tipos = tipoCanalDao.listarTodos();
+		}
+		return tipos;
+	}
+
+	public void setTipos(List<TipoCanal> tipos) {
+		this.tipos = tipos;
 	}
 
 	public String salvar(){

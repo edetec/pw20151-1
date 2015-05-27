@@ -27,6 +27,12 @@
 			<h:inputText styleClass="form-control" value="#{canalMB.canal.nome}" />
 			<h:outputLabel value="Logo" />
 			<h:inputText styleClass="form-control" value="#{canalMB.canal.logo}" />
+			<h:outputLabel value="Tipo" />
+			<h:selectOneMenu value="#{canalMB.canal.tipoCanal}">
+				<f:selectItem itemLabel="--"/>
+				<f:selectItems value="#{canalMB.tipos}" var="tipo"
+				 itemLabel="#{tipo.rotulo}" itemValue="#{tipo}" />
+			</h:selectOneMenu>
 			<div>
 				<h:commandButton action="#{canalMB.salvar()}" value="Salvar"
 					styleClass="btn btn-success" />
