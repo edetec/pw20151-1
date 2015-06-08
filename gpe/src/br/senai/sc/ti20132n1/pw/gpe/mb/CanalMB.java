@@ -3,7 +3,9 @@ package br.senai.sc.ti20132n1.pw.gpe.mb;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 import br.senai.sc.ti20132n1.pw.gpe.dao.CanalDao;
 import br.senai.sc.ti20132n1.pw.gpe.dao.TipoCanalDao;
@@ -56,7 +58,8 @@ public class CanalMB {
 
 	public String salvar(){
 		canalDao.salvar(canal);
-		return "listacanal?faces-redirect=true";
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso!"));
+		return "listacanal";
 	}
 	
 	public String excluir(String idParam){

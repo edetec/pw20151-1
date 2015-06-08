@@ -12,6 +12,7 @@
 	</ui:define>
 	
 	<ui:define name="content">
+	<h:messages globalOnly="true" />
 		<h:form>
 			<fieldset>
 				<legend>Informações de contato</legend>
@@ -20,6 +21,12 @@
 				<br />
 				<h:outputLabel value="E-mail " />
 				<h:inputText  styleClass="form-control"  value="#{contatoMB.contato.email}" />
+				<h:outputLabel value="Data de nascimento " />
+				<h:message data-dismiss="alert" styleClass="alert" for="idNascimento" />
+				<h:inputText styleClass="form-control" id="idNascimento" converterMessage="Data inválida"  value="#{contatoMB.contato.nascimento}">
+					<f:convertDateTime locale="pt_BR" />
+				</h:inputText>
+				
 				 <div>
 			 		<h:commandButton action="#{contatoMB.enviar()}" 
 			 			styleClass="btn btn-success" value="Enviar" />

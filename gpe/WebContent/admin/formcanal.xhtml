@@ -15,6 +15,8 @@
 	</ui:define>
 
 	<ui:define name="content">
+		<h:messages globalOnly="true" />
+		
 		<h:form>
 			<h:panelGroup rendered="#{not empty canalMB.canal.id}">
 				<h:outputLabel value="ID" />
@@ -23,15 +25,20 @@
 			</h:panelGroup>
 
 			<h:inputHidden value="#{canalMB.canal.id}" />
-			<h:outputLabel value="Nome" />
-			<h:inputText styleClass="form-control" value="#{canalMB.canal.nome}" />
+			<h:outputLabel value="Nome: " />
+			
+			<h:message for="idNome" style="color:red;" />
+			<h:inputText id="idNome" styleClass="form-control" value="#{canalMB.canal.nome}" 
+				required="true" requiredMessage="Preenchimento obrigatório"/>
+			
 			<h:outputLabel value="Logo" />
 			<h:inputText styleClass="form-control" value="#{canalMB.canal.logo}" />
 			<h:outputLabel value="Tipo" />
-			<h:selectOneMenu styleClass="form-control" value="#{canalMB.canal.tipoCanal}">
-				<f:selectItem itemLabel="--"/>
+			<h:selectOneMenu styleClass="form-control"
+				value="#{canalMB.canal.tipoCanal}">
+				<f:selectItem itemLabel="--" />
 				<f:selectItems value="#{canalMB.tipos}" var="tipo"
-				 itemLabel="#{tipo.rotulo}" itemValue="#{tipo}" />
+					itemLabel="#{tipo.rotulo}" itemValue="#{tipo}" />
 			</h:selectOneMenu>
 			<div>
 				<h:commandButton action="#{canalMB.salvar()}" value="Salvar"
