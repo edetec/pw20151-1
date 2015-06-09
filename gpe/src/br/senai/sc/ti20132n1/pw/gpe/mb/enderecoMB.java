@@ -4,16 +4,22 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 public class enderecoMB {
-	private String latitude = "-25";
-	private String longitude = "-51.6588";
+	private String latitude;
+	private String longitude;
 	
 	public String getLatitude() {
+		if(latitude == null){
+			latitude = "-25";
+		}
 		return latitude;
 	}
 	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
 	public String getLongitude() {
+		if(longitude == null){
+			longitude = "-51.6588";
+		}
 		return longitude;
 	}
 	public void setLongitude(String longitude) {

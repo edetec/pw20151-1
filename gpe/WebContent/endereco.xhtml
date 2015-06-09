@@ -13,15 +13,17 @@
 			src="https://maps.googleapis.com/maps/api/js?sensor=true">
     </script>
 		<h:form id="form">
-			<m:map width="800px" height="800px" latitude="24" longitude="15"
-				jsVariable="map1" zoom="2">
-				<m:marker latitude="#{enderecoMB.latitude}"
-					longitude="#{enderecoMB.longitude}" jsVariable="marker1"
+			<m:map width="400px" height="400px"
+				jsVariable="map1" zoom="14" address="Florianopolis, BR">
+				<m:marker address="Florianopolis, BR" jsVariable="marker1"
 					draggable="true">
 					<m:eventListener eventName="dragend"
 						jsFunction="marker1DragHandler" />
 				</m:marker>
 			</m:map>
+			
+			<h:inputHidden id="idLat" value="#{enderecoMB.latitude}" />
+			<h:inputHidden id="idLon" value="#{enderecoMB.longitude}" />
 			<h:commandButton value="Save as a favorite place!!!"
 				action="#{enderecoMB.save()}" />
 			<br />
@@ -30,7 +32,10 @@
 			<br />
 			<script type="text/javascript">
                function marker1DragHandler(event) {
-                   alert("Current marker1 latlng is: " + event.latLng);
+            	   document.getElementById('form:idLat').value = event.latLng.A;
+            	   document.getElementById('form:idLon').value = event.latLng.F;
+                   
+            	   alert("Current marker1 latlng is: " +  document.getElementById('form:idLon').value);
                }
             </script>
 		</h:form>
