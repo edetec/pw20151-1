@@ -14,13 +14,18 @@
 	    Lista de  Canais
 	</ui:define>
 	<ui:define name="content">
-	
+
 		<h:messages />
 		<h:form>
 			<h:dataTable styleClass="table" value="#{canalMB.canais}" var="item">
 				<h:column>
 					<f:facet name="header">ID</f:facet>
 					<h:outputText value="#{item.id}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Logo</f:facet>
+					<h:graphicImage rendered="#{not empty item.logo}" url="#{canalMB.caminhoUpload(item.logo)}" />
 				</h:column>
 
 				<h:column>
@@ -34,7 +39,8 @@
 						<span class="glyphicon glyphicon-edit"></span>
 					</h:commandLink>
 					<h:outputText value="&nbsp;&nbsp;&nbsp;" />
-					<h:commandLink styleClass="btn btn-warning" onclick="return confirm('Tem certeza?');"
+					<h:commandLink styleClass="btn btn-warning"
+						onclick="return confirm('Tem certeza?');"
 						action="#{canalMB.excluir(item.id)}">
 						<span class="glyphicon glyphicon-trash"></span>
 					</h:commandLink>

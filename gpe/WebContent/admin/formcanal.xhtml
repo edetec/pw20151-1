@@ -17,7 +17,7 @@
 	<ui:define name="content">
 		<h:messages globalOnly="true" />
 		
-		<h:form>
+		<h:form enctype="multipart/form-data">
 			<h:panelGroup rendered="#{not empty canalMB.canal.id}">
 				<h:outputLabel value="ID" />
 				<h:inputText styleClass="form-control" value="#{canalMB.canal.id}"
@@ -32,7 +32,9 @@
 				required="true" requiredMessage="Preenchimento obrigatório"/>
 			
 			<h:outputLabel value="Logo" />
-			<h:inputText styleClass="form-control" value="#{canalMB.canal.logo}" />
+			<h:inputFile styleClass="form-control" value="#{canalMB.logo}" />
+			<h:inputHidden styleClass="form-control" value="#{canalMB.canal.logo}" />
+			
 			<h:outputLabel value="Tipo" />
 			<h:selectOneMenu styleClass="form-control"
 				value="#{canalMB.canal.tipoCanal}">
