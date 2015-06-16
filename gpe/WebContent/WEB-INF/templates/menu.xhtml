@@ -27,21 +27,31 @@
 
 				<!-- 				Menu admin -->
 				<div class="container">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-expanded="false"> 
-							<span class="glyphicon glyphicon-user"></span>Admin
-								<span class="caret"></span>
-						</a>
-							<ul class="dropdown-menu" role="menu">
-								<li><h:link outcome="/admin/listacanal"
-										value="Listar canais" /></li>
-								<li><h:link outcome="/admin/formcanal"
-										value="Cadastrar canal" /></li>
-								<li class="divider"></li>
-								<li><a href="#">Outras</a></li>
-							</ul></li>
-					</ul>
+					<h:panelGroup rendered="#{sessaoMB.logado}">
+						<ul class="nav navbar-nav navbar-right">
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" role="button" aria-expanded="false">
+									<span class="glyphicon glyphicon-user"></span>Admin <span
+									class="caret"></span>
+							</a>
+								<ul class="dropdown-menu" role="menu">
+									<li><h:link outcome="/admin/listacanal"
+											value="Listar canais" /></li>
+									<li><h:link outcome="/admin/formcanal"
+											value="Cadastrar canal" /></li>
+									<li class="divider"></li>
+									<li><h:form>
+											<h:commandLink value="Sair" action="#{sessaoMB.logout()}" />
+										</h:form></li>
+								</ul></li>
+						</ul>
+					</h:panelGroup>
+					<h:panelGroup rendered="#{not sessaoMB.logado}">
+						<ul class="nav navbar-nav navbar-right" role="menu">
+							<li><h:link styleClass="btn btn-success" outcome="/login"
+									value="Entrar" /></li>
+						</ul>
+					</h:panelGroup>
 				</div>
 			</div>
 		</div>

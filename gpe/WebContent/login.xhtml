@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/padrao.xhtml">
+	<ui:define name="title">
+	    - Login
+	</ui:define>
+	<ui:define name="content">
+		<h:messages globalOnly="true" styleClass="alert alert-warnning" />
+		<h:form>
+			<h:outputLabel value="Usuário" />
+			<h:inputText styleClass="form-control" value="#{sessaoMB.usuario}" />
+			<h:outputLabel value="Senha" />
+			<h:inputSecret styleClass="form-control" value="#{sessaoMB.senha}" />
+			<br />
+			<h:commandButton styleClass="btn btn-success" value="Entrar"
+				action="#{sessaoMB.login()}" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
