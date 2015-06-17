@@ -14,9 +14,9 @@
 		<h:messages globalOnly="true" styleClass="alert alert-warnning" />
 		<h:form>
 			<h:outputLabel value="Usuário" />
-			<h:inputText styleClass="form-control" value="#{sessaoMB.usuario}" />
+			<h:inputText styleClass="form-control" value="#{sessaoMB.usuarioForm.nome}" />
 			<h:outputLabel value="Senha" />
-			<h:inputSecret styleClass="form-control" value="#{sessaoMB.senha}" />
+			<h:inputSecret styleClass="form-control" value="#{sessaoMB.usuarioForm.senha}" />
 			<br />
 			<h:commandButton styleClass="btn btn-success" value="Entrar"
 				action="#{sessaoMB.login()}" />
