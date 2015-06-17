@@ -23,11 +23,13 @@ public class CanalMB {
 	private List<TipoCanal> tipos;
 	private CanalDao canalDao;
 	private Part logo;
+	private UploadImageUtil uploadImageUtil;
 	
 	@PostConstruct
 	public void initMB() {
 		this.canal = new Canal();
 		canalDao = new CanalDao();
+		uploadImageUtil = new UploadImageUtil("img/uploads/");
 	}
 
 	public Canal getCanal() {
@@ -70,13 +72,13 @@ public class CanalMB {
 	}
 
 	public String caminhoUpload(String imagem){
-		return UploadImageUtil.getCaminhoRelativo(imagem);
+		return uploadImageUtil.getCaminhoRelativo(imagem);
 	}
 	
 	public String salvar(){
 		String nomeLogo;
 		try {
-			nomeLogo = UploadImageUtil.salvar(logo, canal.getLogo());
+			nomeLogo = uploadImageUtil.salvar(logo, canal.getLogo());
 			canal.setLogo(nomeLogo);
 		} catch (UploadImageException e) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
@@ -97,7 +99,7 @@ public class CanalMB {
 		Long id = Long.valueOf(idParam);
 		
 		Canal canalExcluir = canalDao.buscarPorId(id);
-		UploadImageUtil.excluir(canalExcluir.getLogo());
+		uploadImageUtil.excluir(canalExcluir.getLogo());
 		
 		canalDao.excluir(id);
 		canais = null;
