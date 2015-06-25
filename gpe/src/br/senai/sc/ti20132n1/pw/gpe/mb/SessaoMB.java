@@ -9,7 +9,7 @@ import javax.faces.context.FacesContext;
 import br.senai.sc.ti20132n1.pw.gpe.dao.UsuarioDao;
 import br.senai.sc.ti20132n1.pw.gpe.entity.Usuario;
 
-@ManagedBean
+@ManagedBean(name="sessaoMB")
 @SessionScoped
 public class SessaoMB {
 
